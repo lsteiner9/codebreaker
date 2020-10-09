@@ -9,10 +9,21 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * Creates an instance of a randomly-generated secret code for a Codebreaker game.
+ */
 public class Code {
 
   private final char[] secret;
 
+  /**
+   * Creates a character array holding the secret code, using characters found in {@code pool} to
+   * form a code of size {@code length} by using a source of randomness {@code rng}.
+   *
+   * @param pool The letters that are available to be used.
+   * @param length The length of the secret code.
+   * @param rng A source of randomness.
+   */
   public Code(String pool, int length, Random rng) {
     secret = new char[length];
     for (int i = 0; i < length; i++) {
@@ -25,6 +36,10 @@ public class Code {
     return new String(secret);
   }
 
+  /**
+   * Implements a comparison between user-submitted input and {@link Code}.
+   *
+   */
   public class Guess {
 
     private static final String STRING_FORMAT = "{text: \"%s\", correct: %d, close: %d}";
@@ -32,6 +47,10 @@ public class Code {
     private final int correct;
     private final int close;
 
+    /**
+     * Compares the user-submitted input and the secret code.
+     * @param text Guess content.
+     */
     public Guess(String text) {
       this.text = text;
       int correct = 0;
@@ -81,14 +100,24 @@ public class Code {
       return String.format(STRING_FORMAT, text, correct, close);
     }
 
+    /**
+     * Returns the text of this instance.
+     */
     public String getText() {
       return text;
     }
 
+    /**
+     * Returns the number of characters that are in the correct position in this instance.
+     */
     public int getCorrect() {
       return correct;
     }
 
+    /**
+     * Returns the number of characters that are correct but in the wrong position in this
+     * instance.
+     */
     public int getClose() {
       return close;
     }
