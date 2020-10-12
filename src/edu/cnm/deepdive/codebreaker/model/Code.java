@@ -17,12 +17,12 @@ public class Code {
   private final char[] secret;
 
   /**
-   * Creates a character array holding the secret code, using characters found in {@code pool} to
-   * form a code of size {@code length} by using a source of randomness {@code rng}.
+   * Creates a character array holding the secret code. Uses {@code rng} to select {@code length}
+   * characters from {@code pool}.
    *
-   * @param pool The letters that are available to be used.
+   * @param pool   The letters available to be used.
    * @param length The length of the secret code.
-   * @param rng A source of randomness.
+   * @param rng    A source of randomness.
    */
   public Code(String pool, int length, Random rng) {
     secret = new char[length];
@@ -101,14 +101,14 @@ public class Code {
     }
 
     /**
-     * Returns the text of this instance.
+     * Returns the text of this guess.
      */
     public String getText() {
       return text;
     }
 
     /**
-     * Returns the number of characters that are in the correct position in this instance.
+     * Returns the number of characters that are in the correct position in this guess.
      */
     public int getCorrect() {
       return correct;
@@ -116,7 +116,7 @@ public class Code {
 
     /**
      * Returns the number of characters that are correct but in the wrong position in this
-     * instance.
+     * guess.
      */
     public int getClose() {
       return close;
